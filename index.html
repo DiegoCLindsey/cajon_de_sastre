@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Casa_Marcos.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<ul>
+<li>{OB1} = Francisco, el de wallapop</li>
+<li>{JM} = Josema</li>
+<li>{MC} = Marcos</li>
+<li>{PT} = Pintor</li>
+<li>{EC} = Electricista (Probablemente Josema)</li>
+</ul>
+<pre><code class="language-mermaid"><div class="mermaid">gantt
+
+title Casa FRAMAR
+
+dateFormat DD/MM/YY
+
+INICIO                              :INICIO, 22/02/25,0d
+
+W10                                 :done,  W10, 01/03/25, 7d
+W11                                 :done,  W11, 08/03/25, 7d
+W12                                 :done,  W12, 15/03/25, 7d
+W13                                 :done,  W13, 22/03/25, 7d
+W14                                 :done,  W14, 29/03/25, 7d
+W15                                 :done,  W15, 05/04/25, 7d
+W16                                 :       W16, 12/04/25, 7d
+W17                                 :       W17, 19/04/25, 7d
+W18                                 :       W18, 26/04/25, 7d
+
+MARZO                               :       MARZO, 01/03/25, 31d
+ABRIL                               :       ABRIL, 01/04/25, 30d
+Viaje                               :       VIAJE, 09/04/25, 21d
+
+OB1_1                               :active,OB1_1, 05/03/25, 1d
+OB1_2                               :       OB1_2, after W10, 1d
+PT_1                                :       PT_1, after HB2, 1d
+OB1_3                               :       OB1_3, after W11, 1d
+OB1_4                               :       OB1_4, 18/03/25, 1d
+OB1_5[2]                            :       OB1_5, after W12, 1d
+EC_1                                :       EC_1, after W12, 1d
+
+section Habitación auxiliar
+    Ensolar                         :done,  HA1, 03/03/2025, 2d
+    {OB1-1} Rodapiés                        :active,HA2, after HA1, 0.5d
+    {OB1-1} Repasar techo y paredes         :active,HA3, after HA2, 0.5d
+    {PT-1} Pintar paredes                  :       HA4, after PT_1, 1d
+    {MC} Limpiar                         :       HA5, after HA4, 0.5d
+    FIN OBRA HABITACIÓN AUXILIAR    :milestone, HAFIN, after HA1 HA2 HA3 HA4 HA5, 1d
+
+    {OB1-3} Puerta rellano                  :       HA_I2, after OB1_3, 0.5d
+    {EC-1} Cables e iluminación            :       HA_I1, after EC_1, 0.5d
+    FIN INSTALACIONES HABITACIÓN AUXILIAR :milestone, HAIFIN, after HA_I1 HA_I2, 0d
+
+
+section Habitación principal 
+    {OB1-1} Ensolar [90%]                   :active,HP1, after OB1_1, 2d
+    {OB1-1} Rodapiés                        :active,HP2, after HP1, 0.5d
+    {OB1-1} Repasar techo y paredes         :active,HP3, after HP2, 0.5d
+    {PT-1} Pintar paredes                  :     HP4, after PT_1, 0.5d
+    {MC} Limpiar                         :       HP5, after HP4, 0.5d
+    FIN OBRA HABITACIÓN PRINCIPAL   :milestone, HPFIN, after HAFIN, 0d
+
+    {OB1-3} Puerta rellano                  :       HP_I2, after OB1_3, 0.5d
+    {OB1-3} Puerta baño                     :       HP_I3, after OB1_3, 0.5d
+    {EC-1} Cables e iluminación            :       HP_I1, after EC_1, 0.5d
+    FIN INSTALACIONES HABITACIÓN PRINCIPAL :milestone, HPIFIN, after HP_I1 HP_I2 HP_I3, 0d
+
+section Balcón
+    {OB1-2} Ensolar                      :       HB1, after OB1_2, 2d
+    {OB1-2} Rodapiés                     :       HB2, after HB1, 1d
+    {JM} Poner balconera [!!!]           :crit,  HB6, after W10, 0.5d
+    {PT-1} Pintar paredes                  :     HB4, after PT_1, 0.5d
+    {MC} Limpiar                         :       HB5, after HB4, 0.5d
+    FIN OBRA BALCÓN                 :milestone, HBFIN, after HB1 HB2 HB4 HB5, 0d
+
+section Baño Arriba
+    {JM} Pladur paredes             :done,  BA1, 03/01/2025, 2d
+    {JM} Pladur techo               :done,  BA2, 03/01/2025, 1d
+    {JM} Allanar suelo              :crit,  BA3, after W11, 1d
+    {JM} Bañera                     :crit,  BA9, after W10, 1d
+    {OB1-4} Ensolar                 :       BA4, after OB1_4, 1d
+    {OB1-4} Rodapiés                :       BA5, after BA4, 1d
+    {OB1-5} Alicatar                :       BA6, after OB1_5, 4d
+    {OB1-5} Fijar ventana              :       BA7, after BA6, 0.5d
+    FIN OBRA BAÑO ARRIBA            :milestone, BAFIN, after BA1 BA2 BA3 BA4 BA5 BA6 BA7, 0d
+    {JM} WC                         :       BA_I1, after W12, 0.5d
+    {JM} Lavabo                     :       BA_I2, after BA_I1, 0.5d
+    {EC-1} Cables e iluminación     :       BA_I3, after EC_1, 1d
+    FIN INSTALACIONES BAÑO ARRIBA  :milestone, BAIFIN, after BA_I1 BA_I2 BA_I3, 0d
+    
+    FIN OBRA PLANTA ARRIBA          :milestone , AAFIN, after HAFIN BAFIN HPFIN, 0d
+    FIN INSTALACIONES PLANTA ARRIBA :milestone , AAFIN, after HAIFIN BAIFIN HPIFIN, 0d
+
+    FIN PLANTA ARRIBA              :milestone, crit , PAFIN, after AAFIN, 0d
+
+section MUDANZA
+    Llevar mudanza                      :crit,  HAMUD, 03/31/2025, 1d
+
+section Baño Abajo
+    {JM} Casetón                    :       BJ1, after W11, 1d
+    {JM} Allanar suelo              :       BJ2, after W12, 1d
+    {JM} Enlucir techo              :       BJ3, after BJ2, 1d
+    {OB1-6}Enlucir paredes          :       BJ4, after BJ2, 1d
+    {OB1-7} Ensolar                 :       BJ5, after BJ2, 1d
+    {OB1-7} Rodapiés                :       BJ6, after BJ2, 1d
+    {OB1-8} Alicatar                :       BJ7, after BJ5, 2d
+    WC                              :       BJ8, after BJ7, 0.5d
+    Lavabo                          :       BJ9, after BJ7, 0.5d
+    Iluminación                     :       BJ11, after BJ7, 1d
+    FIN OBRA BAÑO ABAJO             :milestone, BJFIN, after BJ11, 0d
+
+section Cocina
+    Ensolar                         :       CC1, after BJ1, 2d
+    Rodapiés                        :       CC2, after CC1, 1d
+    Alicatar                        :       CC4, after CC2, 2d
+    Medir muebles                   :       CC7, after CC4, 0.5d
+    Fabricación muebles             :       CC8, after CC7, 1M
+    Poner muebles                   :       CC9, after CC8, 1d
+    Limpiar                         :       CC5, after CC9, 0.5d
+    Electricidad                    :       CC6, after CC5, 1d
+    FIN OBRA COCINA                 :milestone, CCFIN, after CC8, 0d
+
+section Salón
+    Arqueta                         :       SL1, after BJFIN, 4d
+    Ensolar                         :       SL2, after SL1, 2d
+    Rodapiés                        :       SL3, after SL2, 1d
+    FIN OBRA SALÓN                  :milestone, SLFIN, after SL3, 0d
+
+section Patio y escaleras
+    placeholder                     :       PH4, after SLFIN, 4d
+    FIN OBRA PATIO Y ESCALERAS      :milestone, PHFIN, after PH4, 0d
+
+section OBRA
+    FIN OBRA ABAJO                  :milestone, ABFIN, after BJFIN CCFIN SLFIN PHFIN, 0d
+    FIN OBRA CASA                       :milestone, FINOBRA , after AAFIN ABFIN, 0d
+
+
+</div></code></pre>
+
+</body>
+</html>
